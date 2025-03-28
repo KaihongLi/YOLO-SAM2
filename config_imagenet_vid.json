@@ -1,5 +1,5 @@
 {
-  "name": "YOLO_SAM2",
+  "name": "YOLO-SAM2",
   "n_gpu": 1,
   "arch": {
     "yolo": "yolov8",

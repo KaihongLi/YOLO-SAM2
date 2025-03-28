@@ -111,7 +111,9 @@ python yolo_sam_auto_anno_generator.py -c config.json -b 16 -conf 0.25 -p ./yolo
 ![Elephant](./assert/elephant.png)
 ![Turtle](./assert/turtle.png)
 ![Watercraft](./assert/watercraft.png)
+
 <div style="text-align: center;">Fig. 1. Visual on the ImageNet dataset.</div>
+
 
 **Auto Annotation Result**
 ```json

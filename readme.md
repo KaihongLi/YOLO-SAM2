@@ -40,7 +40,7 @@ path to your datasets/dataset/ImageSets/Segmentation/
                                         —— val.txt(Image filenames)
                                         —— val_videos.txt(Video dirnames)
 path to your datasets/dataset/JPEGImages
-                              —— aaa.jp
+                              —— aaa.jpg
                               —— bbb.jpg
 path to your datasets/dataset/SegmentationClass
                               —— aaa.png(Binary index map)

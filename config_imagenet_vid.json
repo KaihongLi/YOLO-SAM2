@@ -1,0 +1,27 @@
+{
+  "name": "YOLO_SAM2",
+  "n_gpu": 1,
+  "arch": {
+    "yolo": "yolov8",
+    "yolo_weights": "yolo/yolov8/ImageNet_VID/yolov8m_ImageNet_VID.pt",
+    "sam": "sam2",
+    "sam_config": "configs/sam2.1/sam2.1_hiera_l.yaml",
+    "sam_weights": "sam2/checkpoints/sam2.1_hiera_large.pt"
+  },
+  "dataset": {
+    "num_classes": 31,
+    "data_dir": "path to your datasets",
+    "split": "val",
+    "conf": 0.25
+  },
+  "dataloader": {
+    "batch_size": 16,
+    "num_workers": 8
+  },
+  "predictor": {
+    "save_dir": "masks/"
+  },
+  "auto_mask": {
+    "save_dir": "annotations/"
+  }
+}

@@ -13,16 +13,16 @@ Since [Segment Anything Model 2 (SAM 2)](https://github.com/facebookresearch/sam
 
 ## Quick Start
 ### installation
-Install YOLO+SAM2 from source.
+Install YOLO-SAM2 from source.
 ```shell
-git clone git@github.com:KaiHongLi/YOLO_SAM2.git
+git clone git@github.com:KaiHongLi/YOLO-SAM2.git
 cd YOLO_SAM2
 ```
 
 Create conda env.
 ```shell
-conda create -n yolo_sam2 python=3.12.9
-conda activate yolo_sam2
+conda create -n yolo-sam2 python=3.12.9
+conda activate yolo-sam2
 pip install -r requirements.txt
 ```
 
@@ -34,7 +34,7 @@ pip install -e .
 ```
 
 ### DataSets Format
-Download your dataset convert to Pascal Voc Segmentation formate for YOLO+SAM2 and organize it as follows:
+Download your dataset convert to Pascal Voc Segmentation formate for YOLO-SAM2 and organize it as follows:
 ```txt
 path to your datasets/dataset/ImageSets/Segmentation/ 
                                         —— val.txt(Image filenames)

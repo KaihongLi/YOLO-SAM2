@@ -54,3 +54,4 @@ class Generator(object):
             for masks, category_id, image_id, image in zip(masks_batch, categories_id, images_id, data):
                 annotation_generator(masks, category_id, image_id, image.shape[-2], image.shape[-3], ann_dir, self.classes)
 
+            tbar.set_description('Auto_Mask')

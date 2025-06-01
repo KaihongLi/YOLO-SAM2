@@ -174,8 +174,6 @@ class EvaluatorVideo(object):
             outputs = []
             index = 0
             for category_id, bbox, masks in zip(new_categories_id, new_bboxes, new_masks_batch):
-                print(target[index].shape)
-                print(masks.shape)
                 output = np.zeros_like(target[index], dtype=np.int32)
                 masks = np.squeeze(masks, axis=1)
                 for i in range(len(masks)):
@@ -194,8 +192,6 @@ class EvaluatorVideo(object):
             for i, output in enumerate(outputs):
                 if output.shape[0] != height or output.shape[1] != width:
                     print(images_id[i])
-            print(len(outputs))
-            print(len(target))
             seg_metrics = eval_metrics(outputs, target, self.num_classes)
             self._update_seg_metrics(*seg_metrics)
 

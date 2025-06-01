@@ -36,16 +36,19 @@ def show_box(box, ax, category_id, score, classes: list, palette: list):
     x0, y0 = box[0], box[1]
     w, h = box[2] - box[0], box[3] - box[1]
     # color = [c / 255 for c in palette[category_id % len(palette)]]
-    color = [c / 255 for c in palette[category_id*3:category_id*3+3]]
+    color = [c / 255 for c in palette[category_id * 3:category_id * 3 + 3]]
     ax.add_patch(plt.Rectangle((x0, y0), w, h, edgecolor=color, facecolor=(0, 0, 0, 0), lw=2))
-    text = f'{classes[category_id]}: {float(np.squeeze(score)) * 100:.2f}'
+    if score is not None:
+        text = f'{classes[category_id]}: {float(np.squeeze(score)) * 100:.2f}'
+    else:
+        text = f'{classes[category_id]}'
     txt_color = (0, 0, 0) if np.mean(color) > 0.5 else (1, 1, 1)
     txt_bk_color = [c * 0.7 for c in color]
     # font_dict = {
-    #     'family': 'serif',  # 字体系列
-    #     'color': 'darkred',  # 字体颜色
-    #     'weight': 'normal',  # 字体粗细
-    #     'size': 10,  # 字体大小
+    #     'family': 'serif',  # font family
+    #     'color': 'darkred',  # font color
+    #     'weight': 'normal',  # font weight
+    #     'size': 10,  # font size
     # }
     fontsize = 10
     ax.text(x0 + fontsize, y0 - int(1.5 * fontsize), text, fontsize=fontsize, color=txt_color,

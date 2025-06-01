@@ -51,18 +51,22 @@ path to your datasets/dataset/SegmentationClass
 Finetune the YOLO and SAM2 models with your dataset, and then place the fine-tuned model weights in the corresponding folders.
 ```shell
 yolo: ./yolo/yolov8/yolov8x.pt
-sam2: ./sam/sam2.1/sam2.1_hiera_l.pt
+sam2: ./sam/ImageNetVID/sam2.1_hiera_l.pt
 ```
 
 ### Cascade YOLO and SAM2
 
 **Evaluation:**
 ```shell
+# 1. predict_batch_image(single image)
 python yolo_sam.py -c config.json -b 16 -conf 0.25 -p ./yolo/yolov8/prediction.json
 # -c stands for the configuration file
 # -b stands for the batch_size of the dataloader
 # -conf stands for the threshold of the YOLO detection boxes confidence
 # -p stands for the prompt file(default set to None)
+
+# 2. propagate_in_video(object associate)
+python yolo_sam_video.py -c config.json -b 32 -conf 0.5 -p ./yolo/yolov8/prediction.json
 ```
 If you want to accelerate the segmentation speed or have a limited GPU source, you can get the YOLO prediction file first and place it in the corresponding folders. The code can directly read the prompts for the SAM2.
 - YOLO prediction file format
@@ -81,20 +85,28 @@ If you want to accelerate the segmentation speed or have a limited GPU source, y
 **Visualization:**
 
 ```shell
+# 1. predict_batch_image(single image)
 python yolo_sam_visual.py -c config.json -b 16 -conf 0.25 -p ./yolo/yolov8/prediction.json
 # -c stands for the configuration file
 # -b stands for the batch_size of the dataloader
 # -conf stands for the threshold of the YOLO detection boxes confidence
 # -p stands for the prompt file(default set to None)
+
+# 2. propagate_in_video(object associate)
+python yolo_sam_video_visual.py -c config.json -b 32 -conf 0.5 -p ./yolo/yolov8/prediction.json
 ```
 
 **Automated annotation Generate:**
 ```shell
+# 1. predict_batch_image(single image)
 python yolo_sam_auto_anno_generator.py -c config.json -b 16 -conf 0.25 -p ./yolo/yolov8/prediction.json
 # -c stands for the configuration file
 # -b stands for the batch_size of the dataloader
 # -conf stands for the threshold of the YOLO detection boxes confidence
 # -p stands for the prompt file(default set to None)
+
+# 2. propagate_in_video(object associate)
+python yolo_sam_video_auto_generator.py -c config.json -b 32 -conf 0.5 -p ./yolo/yolov8/prediction.json
 ```
 
 ## Main Result 

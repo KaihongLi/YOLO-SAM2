@@ -1,6 +1,6 @@
 """
     Created on Wed Mar 19 2025 by LKH
-    Thyroid Dataset
+    ImageNet VID Dataset
 """
 
 from base import BaseDataSet, BaseDataLoader
@@ -42,7 +42,7 @@ class VIDDataset(BaseDataSet):
             video_list = os.path.join(self.root, "ImageSets/Segmentation", self.split + "_videos.txt")
             videos = [line.rstrip() for line in tuple(open(video_list, "r"))]
             for video in videos:
-                video_dir = os.path.join(self.label_dir, video)
+                video_dir = os.path.join(self.image_dir, video)
                 image_list = [os.path.join(video, image.split('.')[0]) for image in os.listdir(video_dir)]
                 image_list = [image_list[i:i+self.batch_size] for i in range(0, len(image_list), self.batch_size)]
                 self.files += image_list

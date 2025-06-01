@@ -139,10 +139,10 @@ class GeneratorVideo(object):
                     self.last_bboxes = new_bbox
                     self.last_categories = new_category_id
                 else:
-                    if bbox.shape[0] == 0:
+                    if len(bbox) == 0:
                         bbox = self.last_bboxes
                         category_id = self.last_categories
-                    elif self.last_bboxes.shape[0] != 0:
+                    elif len(self.last_bboxes) != 0:
                         bbox = np.vstack((bbox, self.last_bboxes))
                         category_id = np.hstack((category_id, self.last_categories))
                     new_category_id = []

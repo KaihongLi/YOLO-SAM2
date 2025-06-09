@@ -166,4 +166,4 @@ python yolo_sam_video_auto_generator.py -c config.json -b 32 -conf 0.5 -p ./yolo
 ## Acknowledgements
 [sam2:https://github.com/facebookresearch/sam2](https://github.com/facebookresearch/sam2)
 
-[YOLOv8:https://github.com/Pertical/YOLOv8](https://github.com/Pertical/YOLOv8)
+[https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
